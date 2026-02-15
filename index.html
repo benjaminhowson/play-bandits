@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<!-- Header and Imports -->
+<meta charset="UTF-8">
+<meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+
+<link rel = "stylesheet" href = "index.css">
+<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<title> Play Bandits </title>
+</head>
+
+<body class = "theme">
+
+<div class = "container">
+  <!-- Title and Description -->
+  <span style = "font-size: 22px; font-weight: bold;"> Play Bandits </span>
+  <div class = "content-container">
+    <p style = "padding-bottom: 10px;">
+      Multi-Armed Bandit problems isolate the main challenge of sequential 
+      decision-making in uncertain environments. This challenge is the 
+      exploration-exploitation dilemma. Should I try the street food on 
+      Chapel Market? Or, should I have my usual wrap from Pret?
+      This is an example of how the dilemma appears
+      in my own life. 
+    </p>
+    <p>
+      Luckily, there are provably efficient policies that optimally balance
+      the trade-off between exploring lesser-known options and exploiting 
+      what you know is good. Can you collect more rewards than these
+      policies? Try out the interactive demo and see whether your 
+      sum of expected rewards is higher than 
+    </p>
+  </div>
+
+  <div class = "content-container">
+    <div class = "grid-layout">
+      <!-- Selecting Algorithms -->
+      <div class = "box" style = "grid-column: 1 / span 2; text-align: center;">
+        <div class = "field">
+          <label> Policy Selector: </label>
+          <select id = "policy-selection">
+            <option value = "UCB"> Upper Confidence Bound (UCB) </option>
+          </select>
+        </div>
+      </div>
+
+      <!-- User Tracking for Treatment 1 -->
+      <div class = "box" style = "padding-left: 20px;">
+        <span style = "font-size: 16px; font-weight: bold; padding-bottom: 20px;">  
+          <i class = "fa-solid fa-flask" style = "padding-right: 5px; color: #3EB489;"></i>
+          Treatment 1
+        </span>
+        <p id = "N1"> Number of Plays: 0 </p>
+        <p id = "R1"> Cumulative Reward: 0 </p>
+        <button id = "T1"> Select Treatment </button>
+      </div>
+
+      <!-- User Tracking for Treatment 2 -->
+      <div class = "box" style = "padding-left: 20px;">
+        <span style = "font-size: 16px; font-weight: bold; padding-bottom: 20px;">  
+          <i class = "fa-solid fa-flask" style = "padding-right: 5px; color: #3EB489;"></i>
+          Treatment 2
+        </span>
+        <p id = "N2"> Number of Plays: 0 </p>
+        <p id = "R2"> Cumulative Reward: 0 </p>
+        <button id = "T2"> Select Treatment </button>
+      </div>
+
+      <!-- Reveal Results -->
+      <button class = "reveal-button" id = "reveal"> 
+        Reveal Results
+      </button>
+
+      <div class = "box" style = "grid-column: 1 / span 2; text-align: left; padding-left: 20px;">
+        <p id = "user-performance"> User Performance: </p>
+        <p id = "policy-performance"> Policy Performance: </p>
+        <p id = "T1-expectation"> Expected Reward for Treatment 1: </p>
+	<p id = "T2-expectation"> Expected Reward for Treatment 2: </p>
+      </div>
+    </div>
+  </div>
+
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
+  <script src = "index.js"> </script>
+</div>
+</body>

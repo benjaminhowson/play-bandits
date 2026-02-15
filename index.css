@@ -1,0 +1,64 @@
+.theme {
+  color: #FFFFFF;
+  font-family: Arial; 
+  background-color: #333333;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 20px; 
+  padding-bottom: 20px;
+  flex-direction: column;
+}
+
+.content-container {
+  width: 75%;
+  display: inline-block;
+  align-items: left;
+  padding-left: 100px;
+  padding-right: 100px; 
+  padding-top: 10px; 
+  flex-direction: column;
+}
+
+.grid-layout {
+  gap: 20px;
+  display: grid;
+  margin-top: 20px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.box {
+  gap: 20px; 
+  padding: 10px;
+  border-style: solid;
+  border-color: #3EB489;
+  border-radius: 10px;
+}
+
+.field {
+  gap: 10px;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+.reveal-button {
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  background-color: transparent;
+  border: 1px solid #3EB489;         
+  border-radius: 10px; 
+  text-decoration: none;
+  grid-column: 1 / span 2; 
+  text-align: center;
+}
+
+.reveal-button:hover {
+  cursor: pointer;
+  background-color: #3EB489;
+  transition: background-color 0.3s ease;
+}
