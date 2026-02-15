@@ -1,5 +1,5 @@
-const gap = 0.10;
-const baseline = 0.2 + Math.random() * 0.6;
+const gap = 0.20;
+const baseline = 0.3 + Math.random() * 0.4;
 
 const mu = [baseline, baseline + gap * Math.sign(Math.random() - 0.5)];
 
