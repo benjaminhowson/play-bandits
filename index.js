@@ -1,4 +1,7 @@
-const mu = [Math.random(), Math.random()];
+const gap = 0.10;
+const baseline = 0.2 + Math.random() * 0.6;
+
+const mu = [baseline, baseline + gap * Math.sign(Math.random() - 0.5)];
 
 var r = 0;
 var userout = 0;
