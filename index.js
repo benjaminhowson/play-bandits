@@ -1,5 +1,5 @@
-const gap = 0.20;
-const baseline = 0.3 + Math.random() * 0.4;
+const gap = 0.10;
+const baseline = 0.2 + Math.random() * 0.5;
 
 const mu = [baseline, baseline + gap * Math.sign(Math.random() - 0.5)];
 
@@ -13,6 +13,32 @@ function getReward(mu) {
     return 1;
   }
   return 0;
+}
+
+function runETC(n, mu, gap) {
+
+  const m = Math.ceil(Math.sqrt(n));
+  
+  var out = 0;
+  var rewards = [getReward(mu[0]), getReward(mu[1])];
+
+  for (t = 0; t < m; t++) {
+    out = out + mu[0] + mu[1];
+    rewards[0] = rewards[0] + getReward(mu[0]);
+    rewards[1] = rewards[1] + getReward(mu[1]);
+  }
+  
+  var action = 0;
+  var maxima = 0;
+  for (k = 0; k < 2; k++) {
+    if (rewards[k] > maxima) {
+      action = k;
+      maxima = rewards[k];
+    }
+  }
+
+  out = out + (n - m - m) * mu[action];
+  return out.toFixed(2);
 }
 
 function runUCB(n, mu) {
@@ -81,6 +107,10 @@ document.getElementById("reveal").onclick = function () {
 
   if (policy == "UCB") {
     policyout = runUCB(n, mu);
+  }
+
+  if (policy == "ETC") {
+    policyout = runETC(n, mu, gap);
   }
 
   document.getElementById("policy-performance").innerText = "Policy Performance: " + policyout;
